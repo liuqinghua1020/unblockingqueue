@@ -56,7 +56,7 @@ public class ProcessorThread<T> implements Runnable,ProcessorHandler {
             //一旦上面更新了get的进度，则表明当前消费者线程可以消费 nextSeq 的消息了
 
             //如果上一次的还没有消费完，继续消费
-            if(nextSeq < avaiable){
+            if(nextSeq <= avaiable){
                 //真正消费消息
                 T data = (T) arrayUnblockingQueue.elementAt(nextSeq);
                 try {
